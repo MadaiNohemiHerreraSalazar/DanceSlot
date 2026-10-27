@@ -3,669 +3,843 @@
    Cor principal (destaques): roxo escuro
    Cores auxiliares (fundo e detalhes): branco e amarelo
    ==================================================== */
+/* Define as cores e medidas que são reutilizadas no restante do CSS. */
 :root {
-  --roxo: #3b0f70;
-  --roxo-escuro: #280a4d;
-  --roxo-hover: #4d1a8c;
-  --amarelo: #ffc62b;
-  --amarelo-claro: #fff1bf;
-  --branco: #ffffff;
-  --linha: #e9e1f5;
-  --campo-borda: #cdbfe3;
-  --texto: #26123f;
-  --texto-suave: #6a5a80;
-  --erro: #b3261e;
-  --erro-fundo: #fdeceb;
+  --roxo: #3b0f70; /* Guarda uma cor ou valor visual reutilizado em várias partes do site. */
+  --roxo-escuro: #280a4d; /* Guarda uma cor ou valor visual reutilizado em várias partes do site. */
+  --roxo-hover: #4d1a8c; /* Guarda uma cor ou valor visual reutilizado em várias partes do site. */
+  --amarelo: #ffc62b; /* Guarda uma cor ou valor visual reutilizado em várias partes do site. */
+  --amarelo-claro: #fff1bf; /* Guarda uma cor ou valor visual reutilizado em várias partes do site. */
+  --branco: #ffffff; /* Guarda uma cor ou valor visual reutilizado em várias partes do site. */
+  --linha: #e9e1f5; /* Guarda uma cor ou valor visual reutilizado em várias partes do site. */
+  --campo-borda: #cdbfe3; /* Guarda uma cor ou valor visual reutilizado em várias partes do site. */
+  --texto: #26123f; /* Guarda uma cor ou valor visual reutilizado em várias partes do site. */
+  --texto-suave: #6a5a80; /* Guarda uma cor ou valor visual reutilizado em várias partes do site. */
+  --erro: #b3261e; /* Guarda uma cor ou valor visual reutilizado em várias partes do site. */
+  --erro-fundo: #fdeceb; /* Guarda uma cor ou valor visual reutilizado em várias partes do site. */
 
-  --altura-topo: 64px;
-  --altura-nav-mobile: 62px;
-  --raio: 12px;
+  --altura-topo: 64px; /* Guarda uma medida reutilizada em outras regras do CSS. */
+  --altura-nav-mobile: 62px; /* Guarda uma medida reutilizada em outras regras do CSS. */
+  --raio: 12px; /* Guarda uma medida reutilizada em outras regras do CSS. */
 }
 
+/* Aplica a configuração inicial de margens e medidas a todos os elementos. */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  box-sizing: border-box; /* Faz a largura e a altura incluírem o preenchimento e a borda. */
+  margin: 0; /* Define o espaço externo ao redor do elemento. */
+  padding: 0; /* Define o espaço interno entre o conteúdo e a borda. */
 }
 
+/* Define o comportamento geral do documento HTML. */
 html {
-  height: 100%;
-  -webkit-text-size-adjust: 100%;
+  height: 100%; /* Define a altura do elemento. */
+  -webkit-text-size-adjust: 100%; /* Evita que o navegador aumente automaticamente o texto. */
 }
 
+/* Define a aparência base de toda a página. */
 body {
-  height: 100%;
-  background: var(--branco);
-  color: var(--texto);
-  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.4;
+  height: 100%; /* Define a altura do elemento. */
+  background: var(--branco); /* Define o fundo do elemento. */
+  color: var(--texto); /* Define a cor do texto. */
+  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif; /* Define a família de fontes usada no texto. */
+  font-size: 16px; /* Define o tamanho do texto. */
+  line-height: 1.4; /* Controla a altura das linhas de texto. */
 }
 
+/* Define os estilos dos elementos que correspondem a este seletor. */
 .hidden { display: none !important; }
 
+/* Define a aparência e o posicionamento dos campos do formulário. */
 button, input, select { font: inherit; color: inherit; }
+/* Define a aparência e o comportamento visual do botão. */
 button { cursor: pointer; }
 
+/* Define o tamanho e a aparência dos ícones SVG. */
 svg {
-  width: 20px;
-  height: 20px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  flex: none;
+  width: 20px; /* Define a largura do elemento. */
+  height: 20px; /* Define a altura do elemento. */
+  fill: none; /* Define o preenchimento interno dos desenhos SVG. */
+  stroke: currentColor; /* Define a cor do traçado dos desenhos SVG. */
+  stroke-width: 2; /* Define a espessura do traçado dos desenhos SVG. */
+  stroke-linecap: round; /* Define o acabamento das pontas dos traços. */
+  stroke-linejoin: round; /* Define como os traços se encontram nas quinas. */
+  flex: none; /* Define como o item ocupa o espaço disponível no layout. */
 }
 
+/* Destaca visualmente o elemento que está recebendo foco pelo teclado. */
 :focus-visible {
-  outline: 3px solid var(--amarelo);
-  outline-offset: 2px;
+  outline: 3px solid var(--amarelo); /* Define o contorno usado para destacar o foco. */
+  outline-offset: 2px; /* Define a distância entre o contorno e o elemento. */
 }
 
 /* ---------------- marca ---------------- */
+/* Organiza a marca DanceSlot e seus detalhes visuais. */
 .marca {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: flex; /* Escolhe como o elemento é exibido na página. */
+  align-items: center; /* Alinha os elementos no eixo transversal do layout. */
+  gap: 10px; /* Define o espaço entre os elementos filhos. */
 }
+/* Organiza a marca DanceSlot e seus detalhes visuais. */
 .marca-nome {
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: 0.2px;
+  font-size: 1.3rem; /* Define o tamanho do texto. */
+  font-weight: 700; /* Define a espessura do texto. */
+  letter-spacing: 0.2px; /* Controla o espaço entre as letras. */
 }
 /* três faixas de tamanhos diferentes, como horários ocupados numa agenda */
+/* Organiza a marca DanceSlot e seus detalhes visuais. */
 .marca-sinal {
-  width: 24px;
-  height: 22px;
+  width: 24px; /* Define a largura do elemento. */
+  height: 22px; /* Define a altura do elemento. */
+  /* Define o fundo do elemento. */
   background:
     linear-gradient(var(--amarelo), var(--amarelo)) 0 0 / 100% 6px no-repeat,
     linear-gradient(var(--amarelo), var(--amarelo)) 0 8px / 68% 6px no-repeat,
     linear-gradient(var(--amarelo), var(--amarelo)) 0 16px / 84% 6px no-repeat;
-  border-radius: 2px;
+  border-radius: 2px; /* Arredonda os cantos do elemento. */
 }
 
 /* ---------------- botões e campos ---------------- */
+/* Define a aparência e o comportamento visual do botão. */
 .btn {
-  min-height: 44px;
-  padding: 0 18px;
-  border: 1.5px solid transparent;
-  border-radius: 10px;
-  font-weight: 600;
-  line-height: 1;
-  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+  min-height: 44px; /* Define a menor altura permitida. */
+  padding: 0 18px; /* Define o espaço interno entre o conteúdo e a borda. */
+  border: 1.5px solid transparent; /* Define a borda do elemento. */
+  border-radius: 10px; /* Arredonda os cantos do elemento. */
+  font-weight: 600; /* Define a espessura do texto. */
+  line-height: 1; /* Controla a altura das linhas de texto. */
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s; /* Suaviza a mudança das propriedades indicadas. */
 }
+/* Mostra visualmente que o controle está desativado. */
 .btn:disabled { opacity: 0.6; cursor: wait; }
+/* Define a aparência e o comportamento visual do botão. */
 .btn-bloco { width: 100%; }
 
+/* Define a aparência e o comportamento visual do botão. */
 .btn-primario { background: var(--roxo); color: var(--branco); }
+/* Muda a aparência do elemento quando o ponteiro passa por cima. */
 .btn-primario:hover:not(:disabled) { background: var(--roxo-hover); }
 
+/* Define a aparência e o comportamento visual do botão. */
 .btn-contorno { background: var(--branco); border-color: var(--roxo); color: var(--roxo); }
+/* Muda a aparência do elemento quando o ponteiro passa por cima. */
 .btn-contorno:hover { background: var(--amarelo-claro); }
 
 .btn-perigo,
+/* Define a aparência e o comportamento visual do botão. */
 .btn-perigo-contorno { background: var(--branco); border-color: var(--erro); color: var(--erro); }
 .btn-perigo:hover,
+/* Muda a aparência do elemento quando o ponteiro passa por cima. */
 .btn-perigo-contorno:hover { background: var(--erro-fundo); }
+/* Define a aparência e o comportamento visual do botão. */
 .btn.confirmando { background: var(--erro); color: var(--branco); }
 
+/* Define a aparência e o comportamento visual do botão. */
 .btn-sair {
-  min-height: 38px;
-  padding: 0 14px;
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.55);
-  color: var(--branco);
+  min-height: 38px; /* Define a menor altura permitida. */
+  padding: 0 14px; /* Define o espaço interno entre o conteúdo e a borda. */
+  background: transparent; /* Define o fundo do elemento. */
+  border-color: rgba(255, 255, 255, 0.55); /* Define a cor da borda. */
+  color: var(--branco); /* Define a cor do texto. */
 }
+/* Muda a aparência do elemento quando o ponteiro passa por cima. */
 .btn-sair:hover { background: rgba(255, 255, 255, 0.14); }
 
+/* Define a aparência e o comportamento visual do botão. */
 .btn-icone {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border: none;
-  border-radius: 10px;
-  background: transparent;
-  color: var(--roxo);
+  display: grid; /* Escolhe como o elemento é exibido na página. */
+  place-items: center; /* Alinha os elementos nos dois eixos de uma vez. */
+  width: 44px; /* Define a largura do elemento. */
+  height: 44px; /* Define a altura do elemento. */
+  border: none; /* Define a borda do elemento. */
+  border-radius: 10px; /* Arredonda os cantos do elemento. */
+  background: transparent; /* Define o fundo do elemento. */
+  color: var(--roxo); /* Define a cor do texto. */
 }
+/* Muda a aparência do elemento quando o ponteiro passa por cima. */
 .btn-icone:hover { background: var(--amarelo-claro); }
 
+/* Define a aparência e o posicionamento dos campos do formulário. */
 .campo { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; flex: 1; min-width: 0; }
+/* Define a aparência e o posicionamento dos campos do formulário. */
 .campo-linha { display: flex; gap: 12px; }
 
+/* Define a aparência e o posicionamento dos campos do formulário. */
 label { font-size: 0.85rem; font-weight: 600; color: var(--roxo); }
 
+/* Define a aparência e o posicionamento dos campos do formulário. */
 input, select {
-  width: 100%;
-  min-height: 46px;
-  padding: 10px 12px;
-  border: 1.5px solid var(--campo-borda);
-  border-radius: 10px;
-  background: var(--branco);
+  width: 100%; /* Define a largura do elemento. */
+  min-height: 46px; /* Define a menor altura permitida. */
+  padding: 10px 12px; /* Define o espaço interno entre o conteúdo e a borda. */
+  border: 1.5px solid var(--campo-borda); /* Define a borda do elemento. */
+  border-radius: 10px; /* Arredonda os cantos do elemento. */
+  background: var(--branco); /* Define o fundo do elemento. */
   font-size: 1rem; /* 16px evita o zoom automático do iOS */
 }
+/* Define a aparência e o posicionamento dos campos do formulário. */
 input:focus, select:focus {
-  outline: 3px solid var(--amarelo);
-  outline-offset: 0;
-  border-color: var(--roxo);
+  outline: 3px solid var(--amarelo); /* Define o contorno usado para destacar o foco. */
+  outline-offset: 0; /* Define a distância entre o contorno e o elemento. */
+  border-color: var(--roxo); /* Define a cor da borda. */
 }
 
+/* Define os estilos dos elementos que correspondem a este seletor. */
 .erro-form {
-  margin-bottom: 14px;
-  padding: 10px 12px;
-  border-left: 4px solid var(--erro);
-  border-radius: 8px;
-  background: var(--erro-fundo);
-  color: var(--erro);
-  font-size: 0.92rem;
-  font-weight: 600;
+  margin-bottom: 14px; /* Define o espaço externo abaixo do elemento. */
+  padding: 10px 12px; /* Define o espaço interno entre o conteúdo e a borda. */
+  border-left: 4px solid var(--erro); /* Define a borda esquerda. */
+  border-radius: 8px; /* Arredonda os cantos do elemento. */
+  background: var(--erro-fundo); /* Define o fundo do elemento. */
+  color: var(--erro); /* Define a cor do texto. */
+  font-size: 0.92rem; /* Define o tamanho do texto. */
+  font-weight: 600; /* Define a espessura do texto. */
 }
 
 /* ====================================================
    LOGIN
    ==================================================== */
+/* Organiza a tela de login e suas duas áreas principais. */
 .login {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  min-height: 100%;
+  display: grid; /* Escolhe como o elemento é exibido na página. */
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); /* Define quantas colunas existem e qual é a largura delas. */
+  min-height: 100%; /* Define a menor altura permitida. */
 }
 
+/* Organiza a tela de login e suas duas áreas principais. */
 .login-marca {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 40px;
-  padding: 40px 56px 56px;
-  background: var(--roxo);
-  color: var(--branco);
-  overflow: hidden;
+  position: relative; /* Define como o elemento é posicionado em relação à página ou ao contêiner. */
+  display: flex; /* Escolhe como o elemento é exibido na página. */
+  flex-direction: column; /* Define a direção em que os itens flexíveis são organizados. */
+  justify-content: space-between; /* Distribui os elementos no eixo principal do layout. */
+  gap: 40px; /* Define o espaço entre os elementos filhos. */
+  padding: 40px 56px 56px; /* Define o espaço interno entre o conteúdo e a borda. */
+  background: var(--roxo); /* Define o fundo do elemento. */
+  color: var(--branco); /* Define a cor do texto. */
+  overflow: hidden; /* Define o que acontece quando o conteúdo não cabe na área. */
 }
+/* Organiza a tela de login e suas duas áreas principais. */
 .login-texto h1 {
-  max-width: 17ch;
-  font-size: clamp(2rem, 3.4vw, 3.2rem);
-  line-height: 1.1;
-  font-weight: 700;
+  max-width: 17ch; /* Limita a maior largura do elemento. */
+  font-size: clamp(2rem, 3.4vw, 3.2rem); /* Define o tamanho do texto. */
+  line-height: 1.1; /* Controla a altura das linhas de texto. */
+  font-weight: 700; /* Define a espessura do texto. */
 }
+/* Organiza a tela de login e suas duas áreas principais. */
 .login-texto p {
-  margin-top: 18px;
-  font-size: 1.15rem;
-  color: var(--amarelo);
-  font-weight: 600;
+  margin-top: 18px; /* Define o espaço externo acima do elemento. */
+  font-size: 1.15rem; /* Define o tamanho do texto. */
+  color: var(--amarelo); /* Define a cor do texto. */
+  font-weight: 600; /* Define a espessura do texto. */
 }
 /* faixas decorativas que lembram horários reservados na agenda */
+/* Cria um detalhe decorativo depois do conteúdo do elemento. */
 .login-marca::after {
-  content: '';
-  position: absolute;
-  right: -40px;
-  top: 24%;
-  width: 46%;
-  height: 150px;
+  content: ''; /* Define o conteúdo inserido por um pseudoelemento. */
+  position: absolute; /* Define como o elemento é posicionado em relação à página ou ao contêiner. */
+  right: -40px; /* Define a distância em relação à borda direita de referência. */
+  top: 24%; /* Define a distância em relação à borda superior de referência. */
+  width: 46%; /* Define a largura do elemento. */
+  height: 150px; /* Define a altura do elemento. */
+  /* Define o fundo do elemento. */
   background:
     linear-gradient(var(--amarelo), var(--amarelo)) 0 0 / 70% 26px no-repeat,
     linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)) 30% 62px / 100% 26px no-repeat,
     linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)) 12% 124px / 60% 26px no-repeat;
-  border-radius: 6px;
-  pointer-events: none;
+  border-radius: 6px; /* Arredonda os cantos do elemento. */
+  pointer-events: none; /* Controla se o elemento recebe interações do ponteiro. */
 }
+/* Organiza a tela de login e suas duas áreas principais. */
 .login-texto { position: relative; z-index: 1; }
 
+/* Organiza a tela de login e suas duas áreas principais. */
 .login-form-area {
-  display: grid;
-  place-items: center;
-  padding: 32px;
-  background: var(--branco);
+  display: grid; /* Escolhe como o elemento é exibido na página. */
+  place-items: center; /* Alinha os elementos nos dois eixos de uma vez. */
+  padding: 32px; /* Define o espaço interno entre o conteúdo e a borda. */
+  background: var(--branco); /* Define o fundo do elemento. */
 }
+/* Organiza a tela de login e suas duas áreas principais. */
 .login-form { width: 100%; max-width: 380px; }
+/* Organiza a tela de login e suas duas áreas principais. */
 .login-form h2 { font-size: 1.9rem; color: var(--roxo); }
+/* Organiza a tela de login e suas duas áreas principais. */
 .login-ajuda { margin: 6px 0 24px; color: var(--texto-suave); }
 
 /* ====================================================
    APLICAÇÃO
    ==================================================== */
+/* Define os estilos dos elementos que correspondem a este seletor. */
 .app {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  display: flex; /* Escolhe como o elemento é exibido na página. */
+  flex-direction: column; /* Define a direção em que os itens flexíveis são organizados. */
+  height: 100%; /* Define a altura do elemento. */
 }
 
+/* Organiza o cabeçalho e a navegação principal da aplicação. */
 .topo {
-  display: flex;
-  align-items: stretch;
-  gap: 32px;
-  height: var(--altura-topo);
-  padding: 0 24px;
-  background: var(--roxo);
-  color: var(--branco);
-  border-bottom: 4px solid var(--amarelo);
-  flex: none;
+  display: flex; /* Escolhe como o elemento é exibido na página. */
+  align-items: stretch; /* Alinha os elementos no eixo transversal do layout. */
+  gap: 32px; /* Define o espaço entre os elementos filhos. */
+  height: var(--altura-topo); /* Define a altura do elemento. */
+  padding: 0 24px; /* Define o espaço interno entre o conteúdo e a borda. */
+  background: var(--roxo); /* Define o fundo do elemento. */
+  color: var(--branco); /* Define a cor do texto. */
+  border-bottom: 4px solid var(--amarelo); /* Define a borda inferior. */
+  flex: none; /* Define como o item ocupa o espaço disponível no layout. */
 }
+/* Organiza a marca DanceSlot e seus detalhes visuais. */
 .topo .marca { align-self: center; }
 
+/* Organiza o cabeçalho e a navegação principal da aplicação. */
 .abas { display: flex; gap: 4px; align-items: stretch; }
+/* Organiza o cabeçalho e a navegação principal da aplicação. */
 .aba {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0 16px;
-  border: none;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.78);
-  font-weight: 600;
-  position: relative;
+  display: flex; /* Escolhe como o elemento é exibido na página. */
+  align-items: center; /* Alinha os elementos no eixo transversal do layout. */
+  gap: 8px; /* Define o espaço entre os elementos filhos. */
+  padding: 0 16px; /* Define o espaço interno entre o conteúdo e a borda. */
+  border: none; /* Define a borda do elemento. */
+  background: transparent; /* Define o fundo do elemento. */
+  color: rgba(255, 255, 255, 0.78); /* Define a cor do texto. */
+  font-weight: 600; /* Define a espessura do texto. */
+  position: relative; /* Define como o elemento é posicionado em relação à página ou ao contêiner. */
 }
+/* Muda a aparência do elemento quando o ponteiro passa por cima. */
 .aba:hover { color: var(--branco); background: rgba(255, 255, 255, 0.08); }
+/* Organiza o cabeçalho e a navegação principal da aplicação. */
 .aba.ativa { color: var(--branco); }
+/* Cria um detalhe decorativo depois do conteúdo do elemento. */
 .aba.ativa::after {
-  content: '';
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: -4px;
-  height: 4px;
-  background: var(--branco);
+  content: ''; /* Define o conteúdo inserido por um pseudoelemento. */
+  position: absolute; /* Define como o elemento é posicionado em relação à página ou ao contêiner. */
+  left: 12px; /* Define a distância em relação à borda esquerda de referência. */
+  right: 12px; /* Define a distância em relação à borda direita de referência. */
+  bottom: -4px; /* Define a distância em relação à borda inferior de referência. */
+  height: 4px; /* Define a altura do elemento. */
+  background: var(--branco); /* Define o fundo do elemento. */
 }
 
+/* Organiza o cabeçalho e a navegação principal da aplicação. */
 .usuario {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-left: auto;
+  display: flex; /* Escolhe como o elemento é exibido na página. */
+  align-items: center; /* Alinha os elementos no eixo transversal do layout. */
+  gap: 14px; /* Define o espaço entre os elementos filhos. */
+  margin-left: auto; /* Define o espaço externo à esquerda. */
 }
+/* Organiza o cabeçalho e a navegação principal da aplicação. */
 .usuario-nome { font-weight: 600; max-width: 24ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
+/* Organiza os controles usados para escolher a data da agenda. */
 .conteudo {
-  flex: 1;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 18px 24px 16px;
+  flex: 1; /* Define como o item ocupa o espaço disponível no layout. */
+  min-height: 0; /* Define a menor altura permitida. */
+  display: flex; /* Escolhe como o elemento é exibido na página. */
+  flex-direction: column; /* Define a direção em que os itens flexíveis são organizados. */
+  gap: 14px; /* Define o espaço entre os elementos filhos. */
+  padding: 18px 24px 16px; /* Define o espaço interno entre o conteúdo e a borda. */
 }
 
 /* ---------------- barra do dia ---------------- */
+/* Organiza os controles usados para escolher a data da agenda. */
 .dia-barra {
-  display: grid;
-  grid-template-columns: minmax(220px, 1fr) auto minmax(220px, 1fr);
-  align-items: center;
-  gap: 16px;
+  display: grid; /* Escolhe como o elemento é exibido na página. */
+  grid-template-columns: minmax(220px, 1fr) auto minmax(220px, 1fr); /* Define quantas colunas existem e qual é a largura delas. */
+  align-items: center; /* Alinha os elementos no eixo transversal do layout. */
+  gap: 16px; /* Define o espaço entre os elementos filhos. */
 }
+/* Organiza os controles usados para escolher a data da agenda. */
 .dia-titulo h2 { font-size: 1.55rem; color: var(--roxo); line-height: 1.15; }
+/* Organiza os controles usados para escolher a data da agenda. */
 .dia-titulo p { min-height: 1.2em; color: var(--texto-suave); font-weight: 600; font-size: 0.9rem; }
 
+/* Organiza os controles usados para escolher a data da agenda. */
 .semana { display: flex; align-items: center; gap: 4px; }
+/* Organiza os controles usados para escolher a data da agenda. */
 .semana-dias { display: flex; gap: 6px; }
 
+/* Organiza os controles usados para escolher a data da agenda. */
 .dia-botao {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 54px;
-  height: 58px;
-  border: 1.5px solid var(--linha);
-  border-radius: var(--raio);
-  background: var(--branco);
-  position: relative;
+  display: flex; /* Escolhe como o elemento é exibido na página. */
+  flex-direction: column; /* Define a direção em que os itens flexíveis são organizados. */
+  align-items: center; /* Alinha os elementos no eixo transversal do layout. */
+  justify-content: center; /* Distribui os elementos no eixo principal do layout. */
+  width: 54px; /* Define a largura do elemento. */
+  height: 58px; /* Define a altura do elemento. */
+  border: 1.5px solid var(--linha); /* Define a borda do elemento. */
+  border-radius: var(--raio); /* Arredonda os cantos do elemento. */
+  background: var(--branco); /* Define o fundo do elemento. */
+  position: relative; /* Define como o elemento é posicionado em relação à página ou ao contêiner. */
 }
+/* Muda a aparência do elemento quando o ponteiro passa por cima. */
 .dia-botao:hover { border-color: var(--roxo); }
+/* Organiza os controles usados para escolher a data da agenda. */
 .dia-nome { font-size: 0.72rem; color: var(--texto-suave); text-transform: none; }
+/* Organiza os controles usados para escolher a data da agenda. */
 .dia-num { font-size: 1.2rem; font-weight: 700; line-height: 1.1; }
+/* Cria um detalhe decorativo depois do conteúdo do elemento. */
 .dia-botao.hoje::after {
-  content: '';
-  position: absolute;
-  bottom: 5px;
-  width: 16px;
-  height: 4px;
-  border-radius: 2px;
-  background: var(--amarelo);
+  content: ''; /* Define o conteúdo inserido por um pseudoelemento. */
+  position: absolute; /* Define como o elemento é posicionado em relação à página ou ao contêiner. */
+  bottom: 5px; /* Define a distância em relação à borda inferior de referência. */
+  width: 16px; /* Define a largura do elemento. */
+  height: 4px; /* Define a altura do elemento. */
+  border-radius: 2px; /* Arredonda os cantos do elemento. */
+  background: var(--amarelo); /* Define o fundo do elemento. */
 }
+/* Organiza os controles usados para escolher a data da agenda. */
 .dia-botao.selecionado { background: var(--roxo); border-color: var(--roxo); color: var(--branco); }
+/* Organiza os controles usados para escolher a data da agenda. */
 .dia-botao.selecionado .dia-nome { color: rgba(255, 255, 255, 0.8); }
 
+/* Organiza os controles usados para escolher a data da agenda. */
 .dia-acoes { display: flex; justify-content: flex-end; align-items: center; gap: 10px; }
+/* Define a aparência e o posicionamento dos campos do formulário. */
 .dia-acoes input[type='date'] { width: 170px; }
 
 /* ---------------- abas de sala (só no celular) ---------------- */
+/* Define as opções usadas para alternar entre as salas. */
 .salas-abas { display: none; }
 
 /* ---------------- grade sala x horário ---------------- */
+/* Organiza a grade de salas e horários. */
 .grade-area {
-  flex: 1;
-  min-height: 0;
-  overflow: auto;
-  border: 1.5px solid var(--linha);
-  border-radius: 14px;
-  background: var(--branco);
+  flex: 1; /* Define como o item ocupa o espaço disponível no layout. */
+  min-height: 0; /* Define a menor altura permitida. */
+  overflow: auto; /* Define o que acontece quando o conteúdo não cabe na área. */
+  border: 1.5px solid var(--linha); /* Define a borda do elemento. */
+  border-radius: 14px; /* Arredonda os cantos do elemento. */
+  background: var(--branco); /* Define o fundo do elemento. */
 }
 
+/* Organiza a grade de salas e horários. */
 .grade {
-  display: grid;
-  grid-template-columns: 68px repeat(var(--colunas, 4), minmax(150px, 1fr));
-  grid-template-rows: auto;
-  grid-auto-rows: minmax(50px, 1fr);
-  min-height: 100%;
+  display: grid; /* Escolhe como o elemento é exibido na página. */
+  grid-template-columns: 68px repeat(var(--colunas, 4), minmax(150px, 1fr)); /* Define quantas colunas existem e qual é a largura delas. */
+  grid-template-rows: auto; /* Define as linhas iniciais da grade. */
+  grid-auto-rows: minmax(50px, 1fr); /* Define o tamanho das linhas criadas automaticamente. */
+  min-height: 100%; /* Define a menor altura permitida. */
 }
 
+/* Organiza a grade de salas e horários. */
 .cel {
-  border-right: 1px solid var(--linha);
-  border-bottom: 1px solid var(--linha);
-  min-width: 0;
+  border-right: 1px solid var(--linha); /* Define a borda direita. */
+  border-bottom: 1px solid var(--linha); /* Define a borda inferior. */
+  min-width: 0; /* Define a menor largura permitida. */
 }
 
+/* Organiza a grade de salas e horários. */
 .cabecalho {
-  position: sticky;
-  top: 0;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 10px 14px;
-  background: var(--branco);
-  border-bottom: 2px solid var(--roxo);
+  position: sticky; /* Define como o elemento é posicionado em relação à página ou ao contêiner. */
+  top: 0; /* Define a distância em relação à borda superior de referência. */
+  z-index: 3; /* Controla qual elemento aparece à frente quando há sobreposição. */
+  display: flex; /* Escolhe como o elemento é exibido na página. */
+  flex-direction: column; /* Define a direção em que os itens flexíveis são organizados. */
+  justify-content: center; /* Distribui os elementos no eixo principal do layout. */
+  padding: 10px 14px; /* Define o espaço interno entre o conteúdo e a borda. */
+  background: var(--branco); /* Define o fundo do elemento. */
+  border-bottom: 2px solid var(--roxo); /* Define a borda inferior. */
 }
+/* Organiza a grade de salas e horários. */
 .cabecalho strong { color: var(--roxo); font-size: 1.02rem; }
+/* Organiza a grade de salas e horários. */
 .cabecalho span { color: var(--texto-suave); font-size: 0.8rem; }
+/* Organiza a grade de salas e horários. */
 .cabecalho.canto { left: 0; z-index: 4; }
 
+/* Organiza a grade de salas e horários. */
 .hora {
-  position: sticky;
-  left: 0;
-  z-index: 2;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding: 8px 10px 0 0;
-  background: var(--branco);
-  color: var(--texto-suave);
-  font-size: 0.85rem;
-  font-weight: 600;
+  position: sticky; /* Define como o elemento é posicionado em relação à página ou ao contêiner. */
+  left: 0; /* Define a distância em relação à borda esquerda de referência. */
+  z-index: 2; /* Controla qual elemento aparece à frente quando há sobreposição. */
+  display: flex; /* Escolhe como o elemento é exibido na página. */
+  align-items: flex-start; /* Alinha os elementos no eixo transversal do layout. */
+  justify-content: flex-end; /* Distribui os elementos no eixo principal do layout. */
+  padding: 8px 10px 0 0; /* Define o espaço interno entre o conteúdo e a borda. */
+  background: var(--branco); /* Define o fundo do elemento. */
+  color: var(--texto-suave); /* Define a cor do texto. */
+  font-size: 0.85rem; /* Define o tamanho do texto. */
+  font-weight: 600; /* Define a espessura do texto. */
 }
 .hora.agora span,
+/* Organiza a grade de salas e horários. */
 .hora.agora { color: var(--roxo); }
+/* Organiza a grade de salas e horários. */
 .hora.agora {
-  background: var(--amarelo);
-  border-bottom-color: var(--amarelo);
+  background: var(--amarelo); /* Define o fundo do elemento. */
+  border-bottom-color: var(--amarelo); /* Define uma característica visual ou de posicionamento deste elemento. */
 }
 
+/* Mostra um horário disponível e o destaque ao passar por ele. */
 .livre {
-  display: grid;
-  place-items: center;
-  background: var(--branco);
-  border-top: none;
-  border-left: none;
-  border-radius: 0;
+  display: grid; /* Escolhe como o elemento é exibido na página. */
+  place-items: center; /* Alinha os elementos nos dois eixos de uma vez. */
+  background: var(--branco); /* Define o fundo do elemento. */
+  border-top: none; /* Define a borda superior. */
+  border-left: none; /* Define a borda esquerda. */
+  border-radius: 0; /* Arredonda os cantos do elemento. */
 }
+/* Mostra um horário disponível e o destaque ao passar por ele. */
 .livre .mais {
-  font-size: 1.6rem;
-  line-height: 1;
-  color: var(--roxo);
-  opacity: 0;
-  transition: opacity 0.12s;
+  font-size: 1.6rem; /* Define o tamanho do texto. */
+  line-height: 1; /* Controla a altura das linhas de texto. */
+  color: var(--roxo); /* Define a cor do texto. */
+  opacity: 0; /* Controla a transparência do elemento. */
+  transition: opacity 0.12s; /* Suaviza a mudança das propriedades indicadas. */
 }
+/* Muda a aparência do elemento quando o ponteiro passa por cima. */
 .livre:hover:not(:disabled) { background: var(--amarelo-claro); }
 .livre:hover:not(:disabled) .mais,
+/* Destaca visualmente o elemento que está recebendo foco pelo teclado. */
 .livre:focus-visible .mais { opacity: 1; }
+/* Destaca visualmente o elemento que está recebendo foco pelo teclado. */
 .livre:focus-visible { outline-offset: -3px; }
+/* Mostra um horário disponível e o destaque ao passar por ele. */
 .livre.passado {
-  cursor: default;
-  background: repeating-linear-gradient(135deg, #faf8fd 0 8px, #f3eefa 8px 16px);
+  cursor: default; /* Define o formato do cursor ao passar pelo elemento. */
+  background: repeating-linear-gradient(135deg, #faf8fd 0 8px, #f3eefa 8px 16px); /* Define o fundo do elemento. */
 }
 
+/* Define como os blocos de reserva aparecem na agenda. */
 .reserva {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
-  margin: 3px;
-  padding: 8px 10px;
-  border: none;
-  border-radius: 10px;
-  text-align: left;
-  overflow: hidden;
-  min-height: 0;
+  display: flex; /* Escolhe como o elemento é exibido na página. */
+  flex-direction: column; /* Define a direção em que os itens flexíveis são organizados. */
+  align-items: flex-start; /* Alinha os elementos no eixo transversal do layout. */
+  gap: 2px; /* Define o espaço entre os elementos filhos. */
+  margin: 3px; /* Define o espaço externo ao redor do elemento. */
+  padding: 8px 10px; /* Define o espaço interno entre o conteúdo e a borda. */
+  border: none; /* Define a borda do elemento. */
+  border-radius: 10px; /* Arredonda os cantos do elemento. */
+  text-align: left; /* Define o alinhamento do texto. */
+  overflow: hidden; /* Define o que acontece quando o conteúdo não cabe na área. */
+  min-height: 0; /* Define a menor altura permitida. */
 }
+/* Define como os blocos de reserva aparecem na agenda. */
 .reserva strong { font-size: 0.92rem; line-height: 1.2; overflow-wrap: anywhere; }
+/* Define como os blocos de reserva aparecem na agenda. */
 .reserva span { font-size: 0.8rem; line-height: 1.25; }
+/* Define como os blocos de reserva aparecem na agenda. */
 .reserva .faixa { opacity: 0.85; }
+/* Define como os blocos de reserva aparecem na agenda. */
 .reserva.curta { padding: 5px 10px; justify-content: center; }
+/* Define como os blocos de reserva aparecem na agenda. */
 .reserva.curta .faixa { display: none; }
 
+/* Define como os blocos de reserva aparecem na agenda. */
 .reserva.minha { background: var(--roxo); color: var(--branco); }
+/* Muda a aparência do elemento quando o ponteiro passa por cima. */
 button.reserva.minha:hover { background: var(--roxo-hover); }
+/* Define como os blocos de reserva aparecem na agenda. */
 .reserva.outra {
-  background: var(--amarelo-claro);
-  color: var(--roxo-escuro);
-  border-left: 5px solid var(--amarelo);
+  background: var(--amarelo-claro); /* Define o fundo do elemento. */
+  color: var(--roxo-escuro); /* Define a cor do texto. */
+  border-left: 5px solid var(--amarelo); /* Define a borda esquerda. */
 }
+/* Define como os blocos de reserva aparecem na agenda. */
 .reserva.passado { opacity: 0.55; }
 
 /* ---------------- legenda ---------------- */
+/* Organiza a legenda das cores usadas na agenda. */
 .legenda {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 22px;
-  list-style: none;
-  font-size: 0.85rem;
-  color: var(--texto-suave);
-  flex: none;
+  display: flex; /* Escolhe como o elemento é exibido na página. */
+  flex-wrap: wrap; /* Permite que os itens passem para a linha seguinte. */
+  gap: 8px 22px; /* Define o espaço entre os elementos filhos. */
+  list-style: none; /* Define a aparência do marcador da lista. */
+  font-size: 0.85rem; /* Define o tamanho do texto. */
+  color: var(--texto-suave); /* Define a cor do texto. */
+  flex: none; /* Define como o item ocupa o espaço disponível no layout. */
 }
+/* Organiza a legenda das cores usadas na agenda. */
 .legenda li { display: flex; align-items: center; gap: 8px; }
+/* Organiza a legenda das cores usadas na agenda. */
 .amostra { width: 18px; height: 18px; border-radius: 5px; border: 1.5px solid var(--linha); }
+/* Mostra um horário disponível e o destaque ao passar por ele. */
 .amostra.livre { background: var(--branco); border-color: var(--campo-borda); }
+/* Organiza a legenda das cores usadas na agenda. */
 .amostra.minha { background: var(--roxo); border-color: var(--roxo); }
+/* Organiza a legenda das cores usadas na agenda. */
 .amostra.outra { background: var(--amarelo-claro); border-color: var(--amarelo); }
 
 /* ---------------- minhas reservas ---------------- */
+/* Define os estilos dos elementos que correspondem a este seletor. */
 #view-minhas { overflow-y: auto; }
+/* Define a lista e os cartões de reservas pessoais. */
 .minhas-cabecalho h2 { font-size: 1.55rem; color: var(--roxo); }
+/* Define a lista e os cartões de reservas pessoais. */
 .minhas-cabecalho p { color: var(--texto-suave); }
 
+/* Define a lista e os cartões de reservas pessoais. */
 .minhas-lista {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 440px), 1fr));
-  gap: 12px;
-  align-content: start;
+  display: grid; /* Escolhe como o elemento é exibido na página. */
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 440px), 1fr)); /* Define quantas colunas existem e qual é a largura delas. */
+  gap: 12px; /* Define o espaço entre os elementos filhos. */
+  align-content: start; /* Controla o alinhamento do conjunto de linhas ou colunas. */
 }
 
+/* Define a lista e os cartões de reservas pessoais. */
 .cartao-reserva {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 4px 16px;
-  align-items: center;
-  padding: 14px;
-  border: 1.5px solid var(--linha);
-  border-radius: 14px;
+  display: grid; /* Escolhe como o elemento é exibido na página. */
+  grid-template-columns: auto 1fr; /* Define quantas colunas existem e qual é a largura delas. */
+  gap: 4px 16px; /* Define o espaço entre os elementos filhos. */
+  align-items: center; /* Alinha os elementos no eixo transversal do layout. */
+  padding: 14px; /* Define o espaço interno entre o conteúdo e a borda. */
+  border: 1.5px solid var(--linha); /* Define a borda do elemento. */
+  border-radius: 14px; /* Arredonda os cantos do elemento. */
 }
+/* Define a lista e os cartões de reservas pessoais. */
 .cartao-data {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 58px;
-  height: 62px;
-  border-radius: 12px;
-  background: var(--roxo);
-  color: var(--branco);
-  grid-row: span 2;
+  display: flex; /* Escolhe como o elemento é exibido na página. */
+  flex-direction: column; /* Define a direção em que os itens flexíveis são organizados. */
+  align-items: center; /* Alinha os elementos no eixo transversal do layout. */
+  justify-content: center; /* Distribui os elementos no eixo principal do layout. */
+  width: 58px; /* Define a largura do elemento. */
+  height: 62px; /* Define a altura do elemento. */
+  border-radius: 12px; /* Arredonda os cantos do elemento. */
+  background: var(--roxo); /* Define o fundo do elemento. */
+  color: var(--branco); /* Define a cor do texto. */
+  grid-row: span 2; /* Define a linha que o elemento ocupa na grade. */
 }
+/* Define a lista e os cartões de reservas pessoais. */
 .cartao-data span { font-size: 0.75rem; color: var(--amarelo); font-weight: 600; }
+/* Define a lista e os cartões de reservas pessoais. */
 .cartao-data strong { font-size: 1.4rem; line-height: 1.1; }
+/* Define a lista e os cartões de reservas pessoais. */
 .cartao-info h3 { font-size: 1.05rem; color: var(--roxo); overflow-wrap: anywhere; }
+/* Define a lista e os cartões de reservas pessoais. */
 .cartao-info p { color: var(--texto-suave); font-size: 0.9rem; }
+/* Define a lista e os cartões de reservas pessoais. */
 .cartao-acoes { display: flex; gap: 8px; }
+/* Define a aparência e o comportamento visual do botão. */
 .cartao-acoes .btn { min-height: 38px; padding: 0 14px; }
 
+/* Define a lista e os cartões de reservas pessoais. */
 .vazio {
-  grid-column: 1 / -1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 28px;
-  border: 2px dashed var(--campo-borda);
-  border-radius: 14px;
-  background: var(--amarelo-claro);
-  color: var(--roxo-escuro);
-  font-weight: 600;
+  grid-column: 1 / -1; /* Define a coluna que o elemento ocupa na grade. */
+  display: flex; /* Escolhe como o elemento é exibido na página. */
+  flex-direction: column; /* Define a direção em que os itens flexíveis são organizados. */
+  align-items: flex-start; /* Alinha os elementos no eixo transversal do layout. */
+  gap: 14px; /* Define o espaço entre os elementos filhos. */
+  padding: 28px; /* Define o espaço interno entre o conteúdo e a borda. */
+  border: 2px dashed var(--campo-borda); /* Define a borda do elemento. */
+  border-radius: 14px; /* Arredonda os cantos do elemento. */
+  background: var(--amarelo-claro); /* Define o fundo do elemento. */
+  color: var(--roxo-escuro); /* Define a cor do texto. */
+  font-weight: 600; /* Define a espessura do texto. */
 }
 
 /* ---------------- modal ---------------- */
+/* Define a aparência e a organização da janela de reserva. */
 .modal {
-  width: min(520px, calc(100vw - 24px));
-  max-height: calc(100dvh - 24px);
-  margin: auto;
-  padding: 0;
-  border: none;
-  border-radius: 18px;
-  background: var(--branco);
-  color: var(--texto);
-  overflow: hidden;
-  box-shadow: 0 24px 60px rgba(40, 10, 77, 0.35);
+  width: min(520px, calc(100vw - 24px)); /* Define a largura do elemento. */
+  max-height: calc(100dvh - 24px); /* Limita a maior altura do elemento. */
+  margin: auto; /* Define o espaço externo ao redor do elemento. */
+  padding: 0; /* Define o espaço interno entre o conteúdo e a borda. */
+  border: none; /* Define a borda do elemento. */
+  border-radius: 18px; /* Arredonda os cantos do elemento. */
+  background: var(--branco); /* Define o fundo do elemento. */
+  color: var(--texto); /* Define a cor do texto. */
+  overflow: hidden; /* Define o que acontece quando o conteúdo não cabe na área. */
+  box-shadow: 0 24px 60px rgba(40, 10, 77, 0.35); /* Adiciona sombra ao redor do elemento. */
 }
+/* Define a aparência e a organização da janela de reserva. */
 .modal[open] { display: flex; flex-direction: column; }
+/* Define o fundo escurecido atrás da janela modal. */
 .modal::backdrop { background: rgba(40, 10, 77, 0.6); }
+/* Define a aparência e a organização da janela de reserva. */
 .modal form { display: flex; flex-direction: column; min-height: 0; }
 
+/* Define a aparência e a organização da janela de reserva. */
 .modal-topo {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 10px 10px 22px;
-  background: var(--roxo);
-  color: var(--branco);
-  border-bottom: 4px solid var(--amarelo);
+  display: flex; /* Escolhe como o elemento é exibido na página. */
+  align-items: center; /* Alinha os elementos no eixo transversal do layout. */
+  justify-content: space-between; /* Distribui os elementos no eixo principal do layout. */
+  padding: 10px 10px 10px 22px; /* Define o espaço interno entre o conteúdo e a borda. */
+  background: var(--roxo); /* Define o fundo do elemento. */
+  color: var(--branco); /* Define a cor do texto. */
+  border-bottom: 4px solid var(--amarelo); /* Define a borda inferior. */
 }
+/* Define a aparência e a organização da janela de reserva. */
 .modal-topo h3 { font-size: 1.15rem; }
+/* Define a aparência e o comportamento visual do botão. */
 .modal-topo .btn-icone { color: var(--branco); }
+/* Muda a aparência do elemento quando o ponteiro passa por cima. */
 .modal-topo .btn-icone:hover { background: rgba(255, 255, 255, 0.14); }
 
+/* Define a aparência e a organização da janela de reserva. */
 .modal-corpo { padding: 22px 22px 8px; overflow-y: auto; }
+/* Define a aparência e a organização da janela de reserva. */
 .modal-rodape {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 22px 20px;
-  flex-wrap: wrap;
+  display: flex; /* Escolhe como o elemento é exibido na página. */
+  align-items: center; /* Alinha os elementos no eixo transversal do layout. */
+  gap: 10px; /* Define o espaço entre os elementos filhos. */
+  padding: 14px 22px 20px; /* Define o espaço interno entre o conteúdo e a borda. */
+  flex-wrap: wrap; /* Permite que os itens passem para a linha seguinte. */
 }
+/* Define os estilos dos elementos que correspondem a este seletor. */
 .espaco { flex: 1; }
 
 /* ---------------- aviso (toast) ---------------- */
+/* Define a mensagem temporária exibida depois de uma ação. */
 .aviso {
-  position: fixed;
-  left: 50%;
-  bottom: 24px;
-  transform: translateX(-50%);
-  z-index: 50;
-  max-width: min(520px, calc(100vw - 24px));
-  padding: 12px 18px;
-  border-radius: 12px;
-  border-left: 6px solid var(--amarelo);
-  background: var(--roxo-escuro);
-  color: var(--branco);
-  font-weight: 600;
-  box-shadow: 0 10px 30px rgba(40, 10, 77, 0.3);
+  position: fixed; /* Define como o elemento é posicionado em relação à página ou ao contêiner. */
+  left: 50%; /* Define a distância em relação à borda esquerda de referência. */
+  bottom: 24px; /* Define a distância em relação à borda inferior de referência. */
+  transform: translateX(-50%); /* Aplica uma transformação visual ao elemento. */
+  z-index: 50; /* Controla qual elemento aparece à frente quando há sobreposição. */
+  max-width: min(520px, calc(100vw - 24px)); /* Limita a maior largura do elemento. */
+  padding: 12px 18px; /* Define o espaço interno entre o conteúdo e a borda. */
+  border-radius: 12px; /* Arredonda os cantos do elemento. */
+  border-left: 6px solid var(--amarelo); /* Define a borda esquerda. */
+  background: var(--roxo-escuro); /* Define o fundo do elemento. */
+  color: var(--branco); /* Define a cor do texto. */
+  font-weight: 600; /* Define a espessura do texto. */
+  box-shadow: 0 10px 30px rgba(40, 10, 77, 0.3); /* Adiciona sombra ao redor do elemento. */
 }
+/* Define a mensagem temporária exibida depois de uma ação. */
 .aviso.erro { background: var(--erro); border-left-color: var(--amarelo); }
 
 /* ====================================================
    CELULAR
    ==================================================== */
+/* Ajusta a interface para telas de celular. */
 @media (max-width: 760px) {
+  /* Organiza a tela de login e suas duas áreas principais. */
   .login { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+  /* Organiza a tela de login e suas duas áreas principais. */
   .login-marca { padding: 24px 22px 28px; gap: 18px; }
+  /* Cria um detalhe decorativo depois do conteúdo do elemento. */
   .login-marca::after { display: none; }
+  /* Organiza a tela de login e suas duas áreas principais. */
   .login-texto h1 { font-size: 1.55rem; max-width: none; }
+  /* Organiza a tela de login e suas duas áreas principais. */
   .login-texto p { margin-top: 8px; font-size: 1rem; }
+  /* Organiza a tela de login e suas duas áreas principais. */
   .login-form-area { place-items: start center; padding: 28px 22px; }
 
+  /* Define as cores e medidas que são reutilizadas no restante do CSS. */
   :root { --altura-topo: 56px; }
+  /* Organiza o cabeçalho e a navegação principal da aplicação. */
   .topo { padding: 0 14px; gap: 12px; }
+  /* Organiza a marca DanceSlot e seus detalhes visuais. */
   .marca-nome { font-size: 1.15rem; }
+  /* Organiza o cabeçalho e a navegação principal da aplicação. */
   .usuario-nome { display: none; }
 
   /* navegação vira barra inferior */
+  /* Organiza o cabeçalho e a navegação principal da aplicação. */
   .abas {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 20;
-    gap: 0;
-    height: calc(var(--altura-nav-mobile) + env(safe-area-inset-bottom));
-    padding-bottom: env(safe-area-inset-bottom);
-    background: var(--branco);
-    border-top: 1.5px solid var(--linha);
+    position: fixed; /* Define como o elemento é posicionado em relação à página ou ao contêiner. */
+    left: 0; /* Define a distância em relação à borda esquerda de referência. */
+    right: 0; /* Define a distância em relação à borda direita de referência. */
+    bottom: 0; /* Define a distância em relação à borda inferior de referência. */
+    z-index: 20; /* Controla qual elemento aparece à frente quando há sobreposição. */
+    gap: 0; /* Define o espaço entre os elementos filhos. */
+    height: calc(var(--altura-nav-mobile) + env(safe-area-inset-bottom)); /* Define a altura do elemento. */
+    padding-bottom: env(safe-area-inset-bottom); /* Define o espaço interno na parte de baixo. */
+    background: var(--branco); /* Define o fundo do elemento. */
+    border-top: 1.5px solid var(--linha); /* Define a borda superior. */
   }
+  /* Organiza o cabeçalho e a navegação principal da aplicação. */
   .aba {
-    flex: 1;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2px;
-    padding: 0;
-    font-size: 0.78rem;
-    color: var(--texto-suave);
+    flex: 1; /* Define como o item ocupa o espaço disponível no layout. */
+    flex-direction: column; /* Define a direção em que os itens flexíveis são organizados. */
+    justify-content: center; /* Distribui os elementos no eixo principal do layout. */
+    gap: 2px; /* Define o espaço entre os elementos filhos. */
+    padding: 0; /* Define o espaço interno entre o conteúdo e a borda. */
+    font-size: 0.78rem; /* Define o tamanho do texto. */
+    color: var(--texto-suave); /* Define a cor do texto. */
   }
+  /* Muda a aparência do elemento quando o ponteiro passa por cima. */
   .aba:hover { background: transparent; color: var(--texto-suave); }
+  /* Organiza o cabeçalho e a navegação principal da aplicação. */
   .aba.ativa { color: var(--roxo); }
+  /* Cria um detalhe decorativo depois do conteúdo do elemento. */
   .aba.ativa::after { left: 22%; right: 22%; top: -1.5px; bottom: auto; height: 4px; background: var(--amarelo); }
 
+  /* Organiza os controles usados para escolher a data da agenda. */
   .conteudo {
-    padding: 12px 12px calc(var(--altura-nav-mobile) + env(safe-area-inset-bottom) + 12px);
-    gap: 10px;
+    padding: 12px 12px calc(var(--altura-nav-mobile) + env(safe-area-inset-bottom) + 12px); /* Define o espaço interno entre o conteúdo e a borda. */
+    gap: 10px; /* Define o espaço entre os elementos filhos. */
   }
 
+  /* Organiza os controles usados para escolher a data da agenda. */
   .dia-barra { grid-template-columns: 1fr auto; gap: 8px 10px; }
+  /* Organiza os controles usados para escolher a data da agenda. */
   .dia-titulo { grid-column: 1; grid-row: 1; }
+  /* Organiza os controles usados para escolher a data da agenda. */
   .dia-titulo h2 { font-size: 1.25rem; }
+  /* Organiza os controles usados para escolher a data da agenda. */
   .dia-acoes { grid-column: 2; grid-row: 1; }
+  /* Define a aparência e o posicionamento dos campos do formulário. */
   .dia-acoes input[type='date'] { display: none; }
+  /* Organiza os controles usados para escolher a data da agenda. */
   .semana { grid-column: 1 / -1; grid-row: 2; }
+  /* Organiza os controles usados para escolher a data da agenda. */
   .semana-dias { flex: 1; gap: 4px; }
+  /* Organiza os controles usados para escolher a data da agenda. */
   .dia-botao { flex: 1; width: auto; min-width: 0; height: 54px; }
+  /* Define a aparência e o comportamento visual do botão. */
   .btn-icone { width: 36px; height: 44px; }
 
+  /* Define as opções usadas para alternar entre as salas. */
   .salas-abas {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 2px;
-    flex: none;
+    display: flex; /* Escolhe como o elemento é exibido na página. */
+    gap: 8px; /* Define o espaço entre os elementos filhos. */
+    overflow-x: auto; /* Controla o conteúdo que ultrapassa a largura. */
+    padding-bottom: 2px; /* Define o espaço interno na parte de baixo. */
+    flex: none; /* Define como o item ocupa o espaço disponível no layout. */
   }
+  /* Define as opções usadas para alternar entre as salas. */
   .sala-aba {
-    flex: none;
-    min-height: 40px;
-    padding: 0 16px;
-    border: 1.5px solid var(--campo-borda);
-    border-radius: 999px;
-    background: var(--branco);
-    font-weight: 600;
-    color: var(--roxo);
+    flex: none; /* Define como o item ocupa o espaço disponível no layout. */
+    min-height: 40px; /* Define a menor altura permitida. */
+    padding: 0 16px; /* Define o espaço interno entre o conteúdo e a borda. */
+    border: 1.5px solid var(--campo-borda); /* Define a borda do elemento. */
+    border-radius: 999px; /* Arredonda os cantos do elemento. */
+    background: var(--branco); /* Define o fundo do elemento. */
+    font-weight: 600; /* Define a espessura do texto. */
+    color: var(--roxo); /* Define a cor do texto. */
   }
+  /* Define as opções usadas para alternar entre as salas. */
   .sala-aba.ativa { background: var(--roxo); border-color: var(--roxo); color: var(--branco); }
 
+  /* Organiza a grade de salas e horários. */
   .grade { grid-template-columns: 52px minmax(0, 1fr); grid-auto-rows: minmax(56px, 1fr); }
+  /* Organiza a grade de salas e horários. */
   .hora { padding-right: 8px; font-size: 0.78rem; }
+  /* Mostra um horário disponível e o destaque ao passar por ele. */
   .livre .mais { opacity: 0.3; }
+  /* Organiza a legenda das cores usadas na agenda. */
   .legenda { display: none; }
 
+  /* Define a aparência e o posicionamento dos campos do formulário. */
   .campo-linha { gap: 10px; }
+  /* Define a aparência e a organização da janela de reserva. */
   .modal { width: calc(100vw - 16px); }
+  /* Define a aparência e o comportamento visual do botão. */
   .modal-rodape .btn { flex: 1; padding: 0 10px; white-space: nowrap; }
+  /* Define a aparência e a organização da janela de reserva. */
   .modal-rodape .espaco { display: none; }
+  /* Define a aparência e o comportamento visual do botão. */
   .modal-rodape .btn-perigo { flex-basis: 100%; order: 3; }
 
+  /* Define a mensagem temporária exibida depois de uma ação. */
   .aviso { bottom: calc(var(--altura-nav-mobile) + env(safe-area-inset-bottom) + 12px); }
 }
 
+/* Ajusta a interface para esta faixa de largura de tela. */
 @media (min-width: 761px) and (max-width: 1100px) {
+  /* Organiza os controles usados para escolher a data da agenda. */
   .dia-barra { grid-template-columns: 1fr auto; }
+  /* Organiza os controles usados para escolher a data da agenda. */
   .dia-acoes { display: none; }
+  /* Organiza o cabeçalho e a navegação principal da aplicação. */
   .topo { gap: 16px; }
+  /* Organiza o cabeçalho e a navegação principal da aplicação. */
   .usuario-nome { max-width: 14ch; }
 }
 
+/* Reduz as animações para quem prefere menos movimento. */
 @media (prefers-reduced-motion: reduce) {
+  /* Aplica a configuração inicial de margens e medidas a todos os elementos. */
   * { transition: none !important; }
 }

@@ -1,174 +1,259 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <!-- Define uma informação do documento usada pelo navegador. -->
   <meta charset="UTF-8">
+  <!-- Define uma informação do documento usada pelo navegador. -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <!-- Define uma informação do documento usada pelo navegador. -->
   <meta name="theme-color" content="#3B0F70">
   <title>DanceSlot - Reserva de salas</title>
+  <!-- Carrega a folha de estilos usada na aparência da página. -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
   <!-- ============ LOGIN ============ -->
+  <!-- Contêiner que mostra a tela de acesso antes do login. -->
   <div id="tela-login" class="login hidden">
+    <!-- Organiza a área de login-marca dentro da página. -->
     <aside class="login-marca">
+      <!-- Elemento com a classe marca, usada para aplicar os estilos. -->
       <div class="marca">
+        <!-- Elemento com a classe marca-sinal, usada para aplicar os estilos. -->
         <span class="marca-sinal" aria-hidden="true"></span>
+        <!-- Elemento com a classe marca-nome, usada para aplicar os estilos. -->
         <span class="marca-nome">DanceSlot</span>
       </div>
+      <!-- Elemento com a classe login-texto, usada para aplicar os estilos. -->
       <div class="login-texto">
         <h1>As salas da companhia, reservadas sem choque de horário.</h1>
         <p>Abertas todos os dias, das 6h às 23h.</p>
       </div>
     </aside>
 
+    <!-- Organiza a área de login-form-area dentro da página. -->
     <main class="login-form-area">
+      <!-- Formulário usado para entrar no sistema. -->
       <form id="login-form" class="login-form" novalidate>
         <h2>Entrar</h2>
+        <!-- Elemento com a classe login-ajuda, usada para aplicar os estilos. -->
         <p class="login-ajuda">Acesso exclusivo para professores e funcionários da companhia.</p>
 
+        <!-- Área para mostrar erros de acesso. -->
         <div id="login-erro" class="erro-form hidden" role="alert"></div>
 
+        <!-- Elemento com a classe campo, usada para aplicar os estilos. -->
         <div class="campo">
+          <!-- Rótulo que identifica o campo login-email. -->
           <label for="login-email">E-mail</label>
+          <!-- Campo em que o funcionário informa o e-mail. -->
           <input type="email" id="login-email" autocomplete="username" inputmode="email" required>
         </div>
+        <!-- Elemento com a classe campo, usada para aplicar os estilos. -->
         <div class="campo">
+          <!-- Rótulo que identifica o campo login-senha. -->
           <label for="login-senha">Senha</label>
+          <!-- Campo de senha, com os caracteres ocultos na tela. -->
           <input type="password" id="login-senha" autocomplete="current-password" required>
         </div>
 
+        <!-- Botão que envia os dados de login. -->
         <button type="submit" id="login-botao" class="btn btn-primario btn-bloco">Entrar</button>
       </form>
     </main>
   </div>
 
   <!-- ============ APLICAÇÃO ============ -->
+  <!-- Contêiner principal da aplicação depois do login. -->
   <div id="tela-app" class="app hidden">
     <header class="topo">
+      <!-- Elemento com a classe marca, usada para aplicar os estilos. -->
       <div class="marca">
+        <!-- Elemento com a classe marca-sinal, usada para aplicar os estilos. -->
         <span class="marca-sinal" aria-hidden="true"></span>
+        <!-- Elemento com a classe marca-nome, usada para aplicar os estilos. -->
         <span class="marca-nome">DanceSlot</span>
       </div>
 
+      <!-- Organiza a área de abas dentro da página. -->
       <nav class="abas" aria-label="Seções">
+        <!-- Botão que abre a visão da agenda. -->
         <button type="button" class="aba ativa" data-view="agenda">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
           <span>Agenda</span>
         </button>
+        <!-- Botão que abre a visão das reservas pessoais. -->
         <button type="button" class="aba" data-view="minhas">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>
           <span>Minhas reservas</span>
         </button>
       </nav>
 
+      <!-- Elemento com a classe usuario, usada para aplicar os estilos. -->
       <div class="usuario">
+        <!-- Local onde aparece o nome do usuário conectado. -->
         <span class="usuario-nome" id="usuario-nome"></span>
+        <!-- Botão para encerrar a sessão atual. -->
         <button type="button" id="btn-sair" class="btn btn-sair">Sair</button>
       </div>
     </header>
 
     <!-- Agenda -->
+    <!-- Área que mostra a agenda de salas e horários. -->
     <main id="view-agenda" class="conteudo">
+      <!-- Organiza a área de dia-barra dentro da página. -->
       <section class="dia-barra" aria-label="Escolher dia">
+        <!-- Elemento com a classe dia-titulo, usada para aplicar os estilos. -->
         <div class="dia-titulo">
+          <!-- Elemento com id dia-titulo, manipulado pelo JavaScript. -->
           <h2 id="dia-titulo"></h2>
+          <!-- Elemento com id dia-sub, manipulado pelo JavaScript. -->
           <p id="dia-sub"></p>
         </div>
 
+        <!-- Elemento com a classe semana, usada para aplicar os estilos. -->
         <div class="semana">
+          <!-- Botão para voltar uma semana na agenda. -->
           <button type="button" class="btn-icone" id="sem-anterior" aria-label="Semana anterior">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
           </button>
+          <!-- Elemento com id semana-dias, manipulado pelo JavaScript. -->
           <div id="semana-dias" class="semana-dias"></div>
+          <!-- Botão para avançar uma semana na agenda. -->
           <button type="button" class="btn-icone" id="sem-proxima" aria-label="Próxima semana">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
           </button>
         </div>
 
+        <!-- Elemento com a classe dia-acoes, usada para aplicar os estilos. -->
         <div class="dia-acoes">
+          <!-- Botão que volta a agenda para a data de hoje. -->
           <button type="button" id="btn-hoje" class="btn btn-contorno">Hoje</button>
+          <!-- Campo de data para escolher um dia diretamente. -->
           <input type="date" id="dia-input" aria-label="Ir para a data">
         </div>
       </section>
 
+      <!-- Área onde o JavaScript cria as opções de sala. -->
       <div id="salas-abas" class="salas-abas" role="tablist" aria-label="Salas"></div>
 
+      <!-- Elemento com a classe grade-area, usada para aplicar os estilos. -->
       <div class="grade-area">
+        <!-- Área em que o JavaScript desenha a grade de horários. -->
         <div id="grade" class="grade" aria-live="polite"></div>
       </div>
 
+      <!-- Elemento com a classe legenda, usada para aplicar os estilos. -->
       <ul class="legenda">
+        <!-- Elemento com a classe amostra livre, usada para aplicar os estilos. -->
         <li><span class="amostra livre"></span>Livre</li>
+        <!-- Elemento com a classe amostra minha, usada para aplicar os estilos. -->
         <li><span class="amostra minha"></span>Sua reserva</li>
+        <!-- Elemento com a classe amostra outra, usada para aplicar os estilos. -->
         <li><span class="amostra outra"></span>Reservada por outro professor</li>
       </ul>
     </main>
 
     <!-- Minhas reservas -->
+    <!-- Área com a lista de reservas futuras do usuário. -->
     <main id="view-minhas" class="conteudo hidden">
+      <!-- Elemento com a classe minhas-cabecalho, usada para aplicar os estilos. -->
       <div class="minhas-cabecalho">
         <h2>Minhas reservas</h2>
         <p>Horários futuros que estão no seu nome.</p>
       </div>
+      <!-- Área em que o JavaScript coloca as reservas do usuário. -->
       <div id="minhas-lista" class="minhas-lista"></div>
     </main>
   </div>
 
   <!-- ============ MODAL DE RESERVA ============ -->
+  <!-- Janela usada para criar ou editar uma reserva. -->
   <dialog id="modal" class="modal" aria-labelledby="modal-titulo">
+    <!-- Formulário com os dados da reserva. -->
     <form id="reserva-form" method="dialog" novalidate>
       <header class="modal-topo">
+        <!-- Elemento com id modal-titulo, manipulado pelo JavaScript. -->
         <h3 id="modal-titulo">Nova reserva</h3>
+        <!-- Botão para fechar a janela de reserva. -->
         <button type="button" class="btn-icone" id="modal-fechar" aria-label="Fechar">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
         </button>
       </header>
 
+      <!-- Elemento com a classe modal-corpo, usada para aplicar os estilos. -->
       <div class="modal-corpo">
+        <!-- Área para mostrar erros de preenchimento da reserva. -->
         <div id="modal-erro" class="erro-form hidden" role="alert"></div>
+        <!-- Campo de hidden (reserva-id) preenchido pelo usuário. -->
         <input type="hidden" id="reserva-id">
 
+        <!-- Elemento com a classe campo, usada para aplicar os estilos. -->
         <div class="campo">
+          <!-- Rótulo que identifica o campo reserva-titulo. -->
           <label for="reserva-titulo">Aula ou ensaio</label>
+          <!-- Campo com o nome da aula ou do ensaio. -->
           <input type="text" id="reserva-titulo" maxlength="80" placeholder="Ex.: Ballet infantil, ensaio do espetáculo" autocomplete="off" required>
         </div>
 
+        <!-- Elemento com a classe campo-linha, usada para aplicar os estilos. -->
         <div class="campo-linha">
+          <!-- Elemento com a classe campo, usada para aplicar os estilos. -->
           <div class="campo">
+            <!-- Rótulo que identifica o campo reserva-sala. -->
             <label for="reserva-sala">Sala</label>
+            <!-- Lista para selecionar a sala que será reservada. -->
             <select id="reserva-sala"></select>
           </div>
+          <!-- Elemento com a classe campo, usada para aplicar os estilos. -->
           <div class="campo">
+            <!-- Rótulo que identifica o campo reserva-data. -->
             <label for="reserva-data">Dia</label>
+            <!-- Campo para escolher o dia da reserva. -->
             <input type="date" id="reserva-data" required>
           </div>
         </div>
 
+        <!-- Elemento com a classe campo-linha, usada para aplicar os estilos. -->
         <div class="campo-linha">
+          <!-- Elemento com a classe campo, usada para aplicar os estilos. -->
           <div class="campo">
+            <!-- Rótulo que identifica o campo reserva-inicio. -->
             <label for="reserva-inicio">Início</label>
+            <!-- Lista para escolher o horário de início. -->
             <select id="reserva-inicio"></select>
           </div>
+          <!-- Elemento com a classe campo, usada para aplicar os estilos. -->
           <div class="campo">
+            <!-- Rótulo que identifica o campo reserva-fim. -->
             <label for="reserva-fim">Término</label>
+            <!-- Lista para escolher o horário de término. -->
             <select id="reserva-fim"></select>
           </div>
         </div>
       </div>
 
+      <!-- Organiza a área de modal-rodape dentro da página. -->
       <footer class="modal-rodape">
+        <!-- Botão que permite cancelar a reserva que está sendo editada. -->
         <button type="button" id="btn-cancelar-reserva" class="btn btn-perigo hidden">Cancelar reserva</button>
+        <!-- Elemento com a classe espaco, usada para aplicar os estilos. -->
         <span class="espaco"></span>
+        <!-- Botão secundário para fechar a janela de reserva. -->
         <button type="button" id="btn-fechar-modal" class="btn btn-contorno">Fechar</button>
+        <!-- Botão que envia o formulário para salvar a reserva. -->
         <button type="submit" id="btn-salvar" class="btn btn-primario">Reservar sala</button>
       </footer>
     </form>
   </dialog>
 
+  <!-- Área usada para avisos temporários, como sucesso ou erro. -->
   <div id="aviso" class="aviso hidden" role="status" aria-live="polite"></div>
 
+  <!-- Carrega o arquivo JavaScript responsável por esta parte do sistema. -->
   <script src="js/api.js"></script>
+  <!-- Carrega o arquivo JavaScript responsável por esta parte do sistema. -->
   <script src="js/app.js"></script>
 </body>
 </html>
